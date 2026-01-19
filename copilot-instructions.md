@@ -8,6 +8,22 @@ This document provides guidance for GitHub Copilot to assist in the development 
 *   **Follow Existing Patterns**: When generating code, please analyze the existing files to match the coding style, naming conventions, and architectural patterns.
 *   **Adhere to Specifications**: All generated code should align with the `TechnicalSpecification.md` and `RequirementsSpecification.md`.
 
+## Coding Conventions
+
+### Java (Backend)
+*   **Style Guide**: Follow the [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html).
+*   **Naming**: Use clear and descriptive names for classes, methods, and variables (e.g., `FormService`, `getFormById`).
+*   **Comments**: Add Javadoc comments to all public methods and classes to explain their purpose, parameters, and return values.
+*   **Immutability**: Prefer immutability where possible, especially for DTOs and configuration properties.
+
+### TypeScript/React (Frontend)
+*   **Style Guide**: Follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) and the official TypeScript guidelines.
+*   **Naming**:
+    *   Use `PascalCase` for React components (e.g., `FormBuilderPage`).
+    *   Use `camelCase` for variables, functions, and hooks (e.g., `useForm`, `fetchFormData`).
+*   **Components**: Always use functional components with hooks. Avoid class components.
+*   **Variables**: Use `const` by default; use `let` only when a variable needs to be reassigned.
+
 ## Backend (Java & Spring Boot)
 
 The backend is a standard Spring Boot application.
