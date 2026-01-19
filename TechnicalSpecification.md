@@ -109,15 +109,16 @@ The following RESTful API endpoints will be exposed by the backend.
 The application will be thoroughly tested to ensure quality and correctness.
 
 *   **Unit Testing**: Backend logic will be tested using JUnit 5 and Mockito to isolate components.
-*   **Integration Testing**: Spring Boot's testing framework will be used for integration tests. An in-memory database (e.g., H2) will be used for database testing. Testcontainers will be used to spin up a dedicated OAuth 2.0 Authorization Server (e.g., a Keycloak container) to run tests in an environment that closely resembles production.
+*   **Integration Testing**: Spring Boot's testing framework will be used for integration tests. An in-memory database (e.g., H2) will be used for database testing. Testcontainers will be used to run the `oauth-server` module in a container to test secured API endpoints on the `backend` module.
 *   **Frontend Testing**: The frontend will have its own suite of unit and integration tests using frameworks like Jest and React Testing Library.
 
 ## 7. Deployment
 
 The application will be packaged as a single executable JAR file (uber-jar). This JAR will contain the Spring Boot backend and all the static frontend assets.
 
-*   **Deployment Unit**: A single JAR file containing both backend and frontend.
-*   **Hosting**: The JAR can be deployed on any platform that runs Java, such as Heroku, AWS Elastic Beanstalk, or as a Docker container.
-*   **Database**: A managed PostgreSQL service like Amazon RDS or Heroku Postgres will be used for the database.
-*   **Authentication**: For development, the embedded Spring Boot Authorization Server will be used. In a production environment, a dedicated identity provider (e.g., Keycloak, Okta, or a separate Spring Boot Authorization Server instance) is recommended.
-*   **CI/CD**: A continuous integration and deployment pipeline will be set up (e.g., using GitHub Actions) to automate the build, testing, and deployment of the single JAR file.
+The modules will be deployed as separate services.
+
+*   **`oauth-server`**: Packaged as an executable JAR and deployed as a standalone service.
+*   **`backend`**: Packaged as an executable JAR (containing the frontend WebJar) and deployed as the main application service.
+*   **Database**: A managed PostgreSQL service like Amazon RDS or Heroku Postgres will be used.
+*   **CI/CD**: The pipeline will be configured to build and test all modules, and then deploy the `oauth-server` and `backend` services.
