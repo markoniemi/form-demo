@@ -4,8 +4,7 @@
 This document describes the technical architecture and implementation details for the form creation and filling application. The system is designed as a Maven multi-module project with clear separation of concerns between frontend, backend, and authentication modules. LocalDevelopmentApplication is provided for local development with an in-memory OAuth server and H2 database.
 
 ## 2. Architecture
-- **Frontend Module**: Built with React, Vite, TypeScript, Bootstrap. Built and packaged as a JAR file for integration with the backend using the frontend-maven-plugin.
-- **Backend Module**: Built with Spring Boot, Spring Data JPA, Spring Security, Lombok. Exposes RESTful APIs for frontend communication and handles business logic and data persistence.
+- **Backend Module**: Built with Spring Boot, Spring Data JPA, Spring Security, Lombok, and Spring Authorization Server for OAuth 2.0 authentication. Exposes RESTful APIs for frontend communication and handles business logic and data persistence. Integrates with OAuth Docker module for testing using Testcontainers.
 - **OAuth Module**: Handles authentication and authorization using OAuth 2.0. Packaged as a Docker container for use in testing with the backend via the Testcontainers library. Also used in LocalDevelopmentApplication as an in-memory server.
 - **Database**: PostgreSQL is used for persistent data storage. H2 is used for testing and local development.
 - **Maven Multi-Module Structure**: The project is organized as a Maven multi-module repository with separate modules for frontend, backend, and oauth.
@@ -18,12 +17,13 @@ This document describes the technical architecture and implementation details fo
 - Packaging: Built and packaged as a JAR file for deployment with backend using the frontend-maven-plugin. The plugin manages Node.js, installs dependencies, builds the frontend, and copies the build output into the backend module for integration.
 
 ### 3.2 Backend
-- Frameworks/Libraries: Spring Boot, Spring Data JPA, Spring Security, Lombok
+- Frameworks/Libraries: Spring Boot, Spring Data JPA, Spring Security, Lombok, Spring Authorization Server
 - API: Exposes RESTful endpoints for all business operations (form management, response submission, user management)
-- Security: Uses Spring Security to enforce OAuth 2.0 authentication and authorization
+- Security: Uses Spring Security and Spring Authorization Server to enforce OAuth 2.0 authentication and authorization
 - Data Access: Uses Spring Data JPA for ORM and PostgreSQL for storage in production, H2 for testing and local development
 - Packaging: Main application JAR includes frontend JAR
 - LocalDevelopmentApplication: Used for local development with in-memory OAuth server and H2 database
+- Integrates with OAuth Docker module for testing using Testcontainers
 
 ### 3.3 OAuth Module
 - Provides OAuth 2.0 authentication and authorization for both form creators and fillers
@@ -45,7 +45,7 @@ This document describes the technical architecture and implementation details fo
 - Backend validates all input and enforces authorization rules
 
 ## 6. Testing
-- Backend tests use Testcontainers to spin up the OAuth Docker container and PostgreSQL database
+- Backend tests use Testcontainers to spin up the OAuth Docker container and PostgreSQL database, and verify authentication flows
 - H2 is used for backend tests and local development
 - Frontend tests use Jest and React Testing Library
 - Backend UI (integration/end-to-end) tests use Selenium with the Page Object Model pattern for maintainable and scalable UI automation

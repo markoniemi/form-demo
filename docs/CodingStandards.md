@@ -31,6 +31,8 @@
 - Write unit and integration tests using JUnit and Testcontainers.
 - Use H2 for testing and PostgreSQL for production.
 - Use Google Java Format for code formatting. Configure automatic formatting in IDE and CI/CD pipelines.
+- Use Spring Authorization Server for OAuth 2.0 authentication and authorization.
+- Secure endpoints with OAuth 2.0 and role-based access control.
 
 ## 4. OAuth Module
 - Use standard OAuth 2.0 flows and libraries.
