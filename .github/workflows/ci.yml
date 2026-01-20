@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, project-setup ]
+  pull_request:
+    branches: [ main, project-setup ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build backend (includes frontend)
+        run: mvn -B clean install
+      - name: Lint frontend
+        run: cd frontend && npm ci && npm run lint
+      - name: Format check frontend
+        run: cd frontend && npm run format
+      - name: Run backend tests
+        run: mvn -B test
