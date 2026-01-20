@@ -4,7 +4,7 @@
 This document describes the technical architecture and implementation details for the form creation and filling application. The system is designed as a multi-module application with clear separation of concerns between frontend, backend, and authentication modules.
 
 ## 2. Architecture
-- **Frontend Module**: Built with React, Vite, TypeScript, Bootstrap. Packaged as a JAR file for integration with the backend.
+- **Frontend Module**: Built with React, Vite, TypeScript, Bootstrap. Built and packaged as a JAR file for integration with the backend using the frontend-maven-plugin.
 - **Backend Module**: Built with Spring Boot, Spring Data JPA, Spring Security, Lombok. Exposes RESTful APIs for frontend communication and handles business logic and data persistence.
 - **OAuth Module**: Handles authentication and authorization using OAuth 2.0. Packaged as a Docker container for use in testing with the backend via the Testcontainers library.
 - **Database**: PostgreSQL is used for persistent data storage. H2 is used for testing.
@@ -15,7 +15,7 @@ This document describes the technical architecture and implementation details fo
 - Frameworks/Libraries: React, Vite, TypeScript, Bootstrap
 - Communication: Uses fetch API to interact with backend RESTful endpoints
 - Authentication: Integrates with OAuth 2.0 flow for login/logout
-- Packaging: Built and packaged as a JAR file for deployment with backend
+- Packaging: Built and packaged as a JAR file for deployment with backend using the frontend-maven-plugin. The plugin manages Node.js, installs dependencies, builds the frontend, and copies the build output into the backend module for integration.
 
 ### 3.2 Backend
 - Frameworks/Libraries: Spring Boot, Spring Data JPA, Spring Security, Lombok
