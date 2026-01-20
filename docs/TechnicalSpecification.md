@@ -48,6 +48,7 @@ This document describes the technical architecture and implementation details fo
 - Backend tests use Testcontainers to spin up the OAuth Docker container and PostgreSQL database
 - H2 is used for backend tests and local development
 - Frontend tests use Jest and React Testing Library
+- Backend UI (integration/end-to-end) tests use Selenium with the Page Object Model pattern for maintainable and scalable UI automation
 
 ## 7. Deployment
 - Backend and OAuth modules are containerized for deployment
