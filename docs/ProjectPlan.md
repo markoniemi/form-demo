@@ -1,16 +1,16 @@
 # Project Plan
 
 ## 1. Overview
-This project plan outlines the implementation of the form creation and filling application, following a sprint-based agile methodology. The plan is structured to deliver a multi-module system with frontend, backend, and authentication modules, as described in the requirements and technical specifications.
+This project plan outlines the implementation of the form creation and filling application, following a sprint-based agile methodology. The plan is structured to deliver a Maven multi-module system with frontend, backend, and OAuth modules, as described in the requirements and technical specifications.
 
 ## 2. Sprints
 
 ### Sprint 1: Project Setup & Core Infrastructure
-- Initialize monorepo with frontend, backend, and OAuth modules
-- Set up version control, CI/CD pipelines, and code quality tools
-- Configure PostgreSQL and H2 databases
-- Implement LocalDevelopmentApplication with in-memory OAuth server and H2 database
-- Establish basic project structure for all modules
+- Initialize Maven multi-module project structure with frontend, backend, and oauth modules
+- Set up version control, CI/CD pipelines (GitHub Actions), and code quality tools (ESLint, Prettier, Google Java Format)
+- Configure PostgreSQL and H2 databases in backend
+- Implement LocalDevelopmentApplication for local development with in-memory OAuth server and H2 database
+- Establish basic project structure for all modules (README, pom.xml, Dockerfile, etc.)
 
 ### Sprint 2: Authentication & Authorization
 - Integrate OAuth 2.0 authentication for form creators and fillers
@@ -29,7 +29,7 @@ This project plan outlines the implementation of the form creation and filling a
 - Implement UI for form creation, editing, and deletion
 - Integrate frontend with backend APIs using fetch
 - Implement authentication flow in frontend
-- Package frontend as JAR for backend integration
+- Package frontend as JAR for backend integration using frontend-maven-plugin
 
 ### Sprint 5: Form Filling & Submission
 - Implement UI for form filling and submission (frontend)
@@ -51,7 +51,7 @@ This project plan outlines the implementation of the form creation and filling a
 - Prepare documentation (user, developer, deployment)
 
 ## 3. Milestones
-- Sprint 1: Project infrastructure ready
+- Sprint 1: Maven multi-module infrastructure ready
 - Sprint 2: Authentication and security in place
 - Sprint 3: Backend form management complete
 - Sprint 4: Frontend form management complete
@@ -62,7 +62,7 @@ This project plan outlines the implementation of the form creation and filling a
 ## 4. Deliverables
 - Source code for all modules
 - Docker images for backend and OAuth modules
-- Packaged frontend JAR
+- Packaged frontend JAR (via frontend-maven-plugin)
 - Database schema and migration scripts
 - Documentation (requirements, technical, user, developer, deployment)
 - Test reports and CI/CD configuration
