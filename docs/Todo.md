@@ -9,3 +9,5 @@ Tasks
     Create project plan document for the form creation and filling application. Implement application in sprints.
 5. Create CodingStandards.md
     Create coding standards document for the form creation and filling application.
+6. Implement application
+   Implement application based on the created documents in phase-wise manner.
