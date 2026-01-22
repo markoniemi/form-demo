@@ -10,8 +10,34 @@
     <artifactId>oauth</artifactId>
     <packaging>jar</packaging>
     <name>oauth</name>
+    <properties>
+        <java.version>21</java.version>
+        <spring-boot.version>3.2.5</spring-boot.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-authorization-server</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+            </plugin>
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
@@ -24,7 +50,7 @@
                         <image>form-demo/oauth:latest</image>
                     </to>
                     <container>
-                        <mainClass>com.example.oauth.Main</mainClass>
+                        <mainClass>com.example.oauth.OAuthApplication</mainClass>
                         <ports>
                             <port>8080</port>
                         </ports>
