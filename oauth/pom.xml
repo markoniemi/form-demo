@@ -10,10 +10,6 @@
     <artifactId>oauth</artifactId>
     <packaging>jar</packaging>
     <name>oauth</name>
-    <properties>
-        <java.version>21</java.version>
-        <spring-boot.version>3.2.5</spring-boot.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -28,7 +24,6 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-oauth2-authorization-server</artifactId>
-            <version>1.2.2</version>
         </dependency>
     </dependencies>
     <build>
@@ -44,7 +39,7 @@
                 <version>3.5.1</version>
                 <configuration>
                     <from>
-                        <image>eclipse-temurin:21-jre</image>
+                        <image>eclipse-temurin:17-jre</image>
                     </from>
                     <to>
                         <image>form-demo/oauth:latest</image>
