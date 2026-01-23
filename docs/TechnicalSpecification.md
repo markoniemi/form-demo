@@ -6,7 +6,7 @@ This document describes the technical architecture and implementation details fo
 ## 2. Architecture
 - **Backend Module**: Built with Spring Boot, Spring Data JPA, Spring Security, Lombok, and Spring Authorization Server for OAuth 2.0 authentication. Exposes RESTful APIs for frontend communication and handles business logic and data persistence. Integrates with OAuth Docker module for testing using Testcontainers.
 - **OAuth Module**: Handles authentication and authorization using OAuth 2.0. Packaged as a Docker container for use in testing with the backend via the Testcontainers library. Also used in LocalDevelopmentApplication as an in-memory server.
-- **Database**: PostgreSQL is used for persistent data storage. H2 is used for testing and local development.
+- **Database**: A relational database is used for persistent data storage. H2 is used for testing and local development.
 - **Maven Multi-Module Structure**: The project is organized as a Maven multi-module repository with separate modules for frontend, backend, and oauth.
 
 ## 3. Module Details
@@ -20,7 +20,7 @@ This document describes the technical architecture and implementation details fo
 - Frameworks/Libraries: Spring Boot, Spring Data JPA, Spring Security, Lombok, Spring Authorization Server
 - API: Exposes RESTful endpoints for all business operations (form management, response submission, user management)
 - Security: Uses Spring Security and Spring Authorization Server to enforce OAuth 2.0 authentication and authorization
-- Data Access: Uses Spring Data JPA for ORM and PostgreSQL for storage in production, H2 for testing and local development
+- Data Access: Uses Spring Data JPA for ORM and a relational database for storage in production, H2 for testing and local development
 - Packaging: Main application JAR includes frontend JAR
 - LocalDevelopmentApplication: Used for local development with in-memory OAuth server and H2 database
 - Integrates with OAuth Docker module for testing using Testcontainers
@@ -32,7 +32,7 @@ This document describes the technical architecture and implementation details fo
 - In-memory OAuth server available for local development via LocalDevelopmentApplication
 
 ### 3.4 Database
-- PostgreSQL schema includes tables for users, forms, fields, responses, and OAuth tokens
+- The database schema includes tables for users, forms, fields, responses, and OAuth tokens
 - H2 is used as an in-memory database for automated tests and local development
 
 ## 4. Communication
@@ -45,7 +45,7 @@ This document describes the technical architecture and implementation details fo
 - Backend validates all input and enforces authorization rules
 
 ## 6. Testing
-- Backend tests use Testcontainers to spin up the OAuth Docker container and PostgreSQL database, and verify authentication flows
+- Backend tests use Testcontainers to spin up the OAuth Docker container and a database, and verify authentication flows
 - H2 is used for backend tests and local development
 - Frontend tests use Jest and React Testing Library
 - Backend UI (integration/end-to-end) tests use Selenium with the Page Object Model pattern for maintainable and scalable UI automation
@@ -53,12 +53,12 @@ This document describes the technical architecture and implementation details fo
 ## 7. Deployment
 - Backend and OAuth modules are containerized for deployment
 - Frontend is packaged as a JAR and served by the backend
-- Database is deployed as a managed PostgreSQL instance or container
+- Database is deployed as a managed database instance or container
 
 ## 8. Technologies Used
 - Frontend: React, Vite, TypeScript, Bootstrap, fetch
 - Backend: Spring Boot, Spring Data JPA, Spring Security, Lombok
-- Database: PostgreSQL (production), H2 (testing, local development)
+- Database: A relational database (production), H2 (testing, local development)
 - OAuth: OAuth 2.0, Docker, Testcontainers
 - Build: Maven multi-module, frontend-maven-plugin
 
