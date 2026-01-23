@@ -41,10 +41,10 @@
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
-                <version>3.4.0</version>
+                <version>3.5.1</version>
                 <configuration>
                     <from>
-                        <image>eclipse-temurin:21-jre-alpine</image>
+                        <image>eclipse-temurin:21-jre</image>
                     </from>
                     <to>
                         <image>form-demo/oauth:latest</image>
