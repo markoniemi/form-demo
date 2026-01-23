@@ -29,7 +29,7 @@
 - Validate all input data and handle errors gracefully.
 - Use Spring Data JPA for ORM and database access.
 - Write unit and integration tests using JUnit and Testcontainers.
-- Use H2 for testing and PostgreSQL for production.
+- Use H2 for testing and production.
 - Use Google Java Format for code formatting. Configure automatic formatting in IDE and CI/CD pipelines.
 - Use Spring Authorization Server for OAuth 2.0 authentication and authorization.
 - Secure endpoints with OAuth 2.0 and role-based access control.
@@ -43,7 +43,7 @@
 ## 5. Database
 - Use clear, consistent naming for tables and columns (snake_case).
 - Write migration scripts for schema changes.
-- Use H2 for tests and local development, PostgreSQL for production.
+- Use H2 for tests and local development, and production.
 - Secure sensitive data (e.g., passwords, tokens) using encryption and access controls.
 
 ## 6. Documentation

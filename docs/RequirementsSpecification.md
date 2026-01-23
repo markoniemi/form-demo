@@ -27,6 +27,6 @@ The application enables form creators to create, manage, and fill out custom for
 - Use RESTful APIs for communication between frontend and backend.
 - Use React (with Vite, Bootstrap, TypeScript) for frontend.
 - Use Spring Boot (with Spring Data JPA, Spring Security, Lombok) for backend.
-- Use PostgreSQL for data storage in production, H2 for testing.
+- Use H2 for data storage in all environments.
 - Package frontend as a JAR file and use it in the backend module.
 - Create OAuth module for handling authentication and authorization during testing, packaged as a Docker container and used in backend tests via Testcontainers.

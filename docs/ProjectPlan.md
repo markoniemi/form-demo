@@ -8,7 +8,7 @@ This project plan outlines the implementation of the form creation and filling a
 ### Sprint 1: Project Setup & Core Infrastructure
 - Initialize Maven multi-module project structure with frontend, backend, and oauth modules
 - Set up version control, CI/CD pipelines (GitHub Actions), and code quality tools (ESLint, Prettier, Google Java Format)
-- Configure PostgreSQL and H2 databases in backend
+- Configure H2 database in backend
 - Implement LocalDevelopmentApplication for local development with in-memory OAuth server and H2 database
 - Establish basic project structure for all modules (README, pom.xml, Dockerfile, etc.)
 
