@@ -47,7 +47,7 @@
                         <image>eclipse-temurin:21-jre</image>
                     </from>
                     <to>
-                        <image>form-demo/oauth:test</image>
+                        <image>form-demo/oauth:latest</image>
                     </to>
                     <container>
                         <mainClass>com.example.oauth.OAuthApplication</mainClass>

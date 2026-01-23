@@ -16,7 +16,7 @@ import org.testcontainers.utility.DockerImageName;
 @Testcontainers
 public class OAuthIntegrationTest {
     @Container
-    public static GenericContainer<?> oauthServer = new GenericContainer<>(DockerImageName.parse("form-demo/oauth:test"))
+    public static GenericContainer<?> oauthServer = new GenericContainer<>(DockerImageName.parse("form-demo/oauth:latest"))
         .withExposedPorts(8080).withImagePullPolicy(PullPolicy.defaultPolicy());
 
     @DynamicPropertySource
