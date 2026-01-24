@@ -12,9 +12,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @Profile("local")
 public class AuthorizationServerConfig {
-    @Bean
-    public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
-        OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
-        return http.build();
-    }
+  @Bean
+  public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http)
+      throws Exception {
+    OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+    return http.build();
+  }
 }
